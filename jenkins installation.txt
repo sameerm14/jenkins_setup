@@ -26,12 +26,12 @@ sudo apt-get install jenkins
 4. Start Jenkins services using below commands
 ------------------------------------------------
 sudo systemctl enable jenkins
-sudo systemctl start Jenkins
+sudo systemctl start jenkins
 ................................................
 
 5. Verify Jenkins setup
 -------------------------
-sudo systemctl status Jenkins
+sudo systemctl status jenkins
 .........................
 
 6. Open jenkins server in browser using VM public ip of linux vm

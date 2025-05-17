@@ -1,0 +1,63 @@
+1. Create Linux VM in AWS
+----------------------------
+Create Ubuntu VM using AWS EC2 (t2.medium, because jenkins require minimum 4gb RAM)
+Enable 8080 Port Number in Security Group Inbound Rules
+Enable 9090 Port Number in Security Group Inbound Rules
+.............................
+
+2. Install Java using below commands
+--------------------------------------
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre
+java -version
+......................................
+
+3. To Install Jenkins use the below commands
+-----------------------------------------------
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install Jenkins
+................................................
+
+4. Start Jenkins services using below commands
+------------------------------------------------
+sudo systemctl enable jenkins
+sudo systemctl start Jenkins
+................................................
+
+5. Verify Jenkins setup
+-------------------------
+sudo systemctl status Jenkins
+.........................
+
+6. Open jenkins server in browser using VM public ip of linux vm
+-------------------------------------------------------------------
+http://<public-ip of your instance >:8080/
+...................................................................
+
+7. Copy jenkins admin pwd
+---------------------------
+Copy jenkins admin pwd
+............................
+
+8. Create Admin Account & Install Required Plugins in Jenkins
+
+
+Do : Manage Jenkins -> Tools -> Maven Installation -> Add maven
+
+
+9. Setup Docker in Jenkins
+---------------------------
+curl -fsSL get.docker.com | /bin/bash
+sudo usermod -aG docker jenkins
+sudo usermod -aG docker ubuntu
+sudo systemctl restart jenkins
+sudo docker version
+exit
+............................
+
+10. Reconnect Your instance.
